@@ -1,11 +1,11 @@
 class CreateWeddings < ActiveRecord::Migration[5.0]
   def change
     create_table :weddings do |t|
-      t.title :string
-      t.description :text
+      t.string :title
+      t.text :description
       t.date :date
-      t.location :string
-      t.capacity :integer
+      t.string :location
+      t.integer :capacity
       t.references :user
 
       t.timestamps

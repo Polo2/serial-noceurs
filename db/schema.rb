@@ -36,4 +36,16 @@ ActiveRecord::Schema.define(version: 20171127171610) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "weddings", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "date"
+    t.string   "location"
+    t.integer  "capacity"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_weddings_on_user_id", using: :btree
+  end
+
 end
