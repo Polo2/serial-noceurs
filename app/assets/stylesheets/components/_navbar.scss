@@ -17,8 +17,8 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -32,7 +32,9 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 15px;
+  font-size: 15px;
+  margin-left: 10px;
 }
 
 /* Navbar link */
@@ -74,4 +76,33 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.form-group {
+  margin: 0 auto;
+}
+
+.form-inline {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid  #808080;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.button {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #8f8f8f;
+}
+
+.form-control {
+  border: none;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.fa {
+  margin-right: 10px;
 }
