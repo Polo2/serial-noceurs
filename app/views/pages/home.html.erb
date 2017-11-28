@@ -1,5 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Page d'acceuil</h1>
+
+<p>Utilisateur connecté ? : <%= user_signed_in? %></p>
+
+
+<% if user_signed_in? %>
+<p>à voir si l'utilisateur est connecté</p>
+<p> Bonjour, <%= current_user.first_name %> ! </p>
+<%= link_to "Edit Profile", edit_user_registration_path %>
 <%= link_to "Sign out", destroy_user_session_path,
 method: :delete,
 data: { confirm: "Are you sure?"} %>
+
+<% else %>
+
+<p> Vous n'etes pas connecté !!
+<%= link_to "Log In", new_user_session_path %>
+<%= link_to "Sign Up", new_user_registration_path %>
+</p>
+
+<% end %>
