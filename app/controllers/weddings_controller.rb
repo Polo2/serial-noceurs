@@ -6,7 +6,6 @@ class WeddingsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -15,11 +14,11 @@ class WeddingsController < ApplicationController
 
   def create
     @wedding = Wedding.new(wedding_params)
-    @wedding.user = @user
+    @wedding.user = current_user
     if @wedding.save
       redirect_to wedding_path(@wedding)
     else
-      render 'weddings/show'
+      render 'weddings/new'
     end
   end
 
