@@ -1,2 +1,27 @@
-<h1>Weddings#show</h1>
-<p>Find me in app/views/weddings/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/banner' %>
+
+  <div class="show">
+
+    <h1><%= @wedding.title %></h1>
+    <h4>The wedding</h4>
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <%= @wedding.date %>
+      <i class="fa fa-globe" aria-hidden="true"></i>
+      <%= @wedding.location %>
+      <i class="fa fa-glass" aria-hidden="true"></i>
+      <%= @wedding.capacity %>
+    </p>
+
+    <hr>
+
+    <p>
+      <%= @wedding.description %>
+    <p>
+    <hr>
+
+    <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+    <%= link_to 'Back', weddings_path %>
+
+</div>

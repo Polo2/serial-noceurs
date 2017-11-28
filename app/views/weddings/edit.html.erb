@@ -1,2 +1,18 @@
-<h1>Weddings#edit</h1>
-<p>Find me in app/views/weddings/edit.html.erb</p>
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+  <%= simple_form_for(@wedding) do |f| %>
+    <%= f.error_notification %>
+
+      <div class="form-inputs">
+      <%= f.input :title, required: true %>
+      <%= f.input :description, required: true %>
+      <%= f.input :date,  start_year: Time.now.year, end_year: Time.now.year + 8, order: [:day, :month, :year], required: true, class: "inline" %>
+      <%= f.input :location, required: true %>
+      <%= f.input :capacity, required: true %>
+    </div>
+
+
+    <div class="form-actions">
+      <%= f.button :submit, "Create", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
