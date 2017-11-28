@@ -34,17 +34,16 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "http://s2.quickmeme.com/img/23/233b8575bb56ae60f6d7f527d5588d6c2aeb64b3e0a600d77cdc069332c8aa44.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to edit_user_registration_path do %> <i class="fa fa-home"></i> Edit
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Sign out") %>
-              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out, sure?"} do %>
+                <i class="fa fa-sign-out"></i>  Sign out
+                <% end %>
             </li>
           </ul>
         </div>
