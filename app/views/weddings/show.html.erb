@@ -1,2 +1,38 @@
-<h1>Weddings#show</h1>
-<p>Find me in app/views/weddings/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+
+  <div class="show">
+
+    <p>
+      <h1><%= @wedding.title %></h1>
+    </p>
+    <p>
+      <strong>Description</strong>
+      <%= @wedding.description %>
+    </p>
+
+    <p>
+      <strong>Date</strong>
+      <%= @wedding.date %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= @wedding.location %>
+    </p>
+
+    <p>
+      <strong>Capacity:</strong>
+      <%= @wedding.capacity %>
+    </p>
+
+    <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+    <%= link_to 'Back', weddings_path %>
+
+    <hr>
+
+
+
+
+
+</div>
