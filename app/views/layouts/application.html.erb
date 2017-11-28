@@ -11,7 +11,9 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= render 'devise/shared/flashes' %>
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     <%= javascript_include_tag 'application' %>
     <%= render 'layouts/footer' %>
   </body>
