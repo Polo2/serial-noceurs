@@ -1,5 +1,10 @@
-<h2>Log in</h2>
 
+
+<div class="row">
+
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+<h2>Se connecter</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email, required: false, autofocus: true %>
@@ -10,6 +15,8 @@
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+  </div>
+</div>

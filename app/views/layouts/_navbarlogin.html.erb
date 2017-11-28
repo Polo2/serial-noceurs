@@ -1,0 +1,68 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag("logo_ns.png", alt: "logo SN") %>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+      <!-- Search Form in Navbar -->
+  <form id="form" class="form-inline">
+    <div class="form-group">
+      <label for="example-search-input" class="mr-sm-2"></label>
+        <input class="form-control" id="address" type="search" placeholder="Essayez 'Savoie'" id="example-search-input">
+    </div>
+    <%= button_tag type: 'submit', class: "button my-button", id: "register-button" do %>
+        <i class="fa fa-search" aria-hidden="true"></i>
+    <% end %>
+  </form>
+
+    <div><a href="" class="navbar-wagon-item navbar-wagon-link">Wedder</a></div>
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <a href="" class="navbar-wagon-link dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">Messages</a>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Private Messages</a></li>
+          <li><a href="#">Notifications</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <% if user_signed_in? %>
+
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= image_tag "http://s2.quickmeme.com/img/23/233b8575bb56ae60f6d7f527d5588d6c2aeb64b3e0a600d77cdc069332c8aa44.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to edit_user_registration_path do %> <i class="fa fa-home"></i> Edit
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out, sure?"} do %>
+                <i class="fa fa-sign-out"></i>  Sign out
+                <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+ <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Wedder</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
