@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <%= simple_form_for(@wedding, current_user) do |f| %>
+    <%= simple_form_for(@wedding) do |f| %>
       <%= f.error_notification %>
 
         <div class="form-inputs">
@@ -11,6 +11,7 @@
         <%= f.input :date,  start_year: Time.now.year, end_year: Time.now.year + 8, order: [:day, :month, :year], required: true, class: "inline" %>
         <%= f.input :location, required: true %>
         <%= f.input :capacity, required: true %>
+        <%= f.input :photo, as: :attachinary %>
       </div>
 
 
