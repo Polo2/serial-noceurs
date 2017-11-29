@@ -17,18 +17,6 @@ puts "recuperons 1 user, sans image d'avatar pour l'instant ..."
 
 users = []
 
-new_user_gerard = User.new({
-    first_name: "test",
-    last_name: "eur",
-    birthday: Date.new(1950,1,1),
-    location: "Bordeaux",
-    email: "ger@ard.fr",
-    password: "azerty",
-    password_confirmation: "azerty",
-    })
-
-users << new_user_gerard
-
 new_user_polo = User.new({
     first_name: "Paul",
     last_name: "de Bodi",
@@ -37,7 +25,7 @@ new_user_polo = User.new({
     email: "polo@bodi.fr",
     password: "333333",
     password_confirmation: "333333",
-    # avatar_url_url: "https://avatars1.githubusercontent.com/u/32060402?s=400&u=33d0f8f8d6ac9979437727646e169c3173784a42&v=4"
+    avatar_url_url: "https://avatars1.githubusercontent.com/u/32060402?s=400&u=33d0f8f8d6ac9979437727646e169c3173784a42&v=4"
     })
 
 users << new_user_polo
@@ -50,7 +38,7 @@ new_user_aurel = User.new({
     email: "aure@lie.fr",
     password: "222222",
     password_confirmation: "222222",
-    # avatar_url_url: "https://avatars0.githubusercontent.com/u/32846131?s=400&v=4"
+    avatar_url_url: "https://avatars0.githubusercontent.com/u/32846131?s=400&v=4"
     })
 
 users << new_user_aurel
@@ -63,7 +51,7 @@ new_user_horti = User.new({
     email: "hor@titi.fr",
     password: "111111",
     password_confirmation: "111111",
-    # avatar_url_url: "https://avatars0.githubusercontent.com/u/32671308?s=400&v=4"
+    avatar_url_url: "https://avatars0.githubusercontent.com/u/32671308?s=400&v=4"
     })
 
 users << new_user_horti
@@ -106,7 +94,7 @@ wedding2_polo = Wedding.new({
 
 weddings << wedding2_polo
 
-wedding3_horti = Wedding.create({
+wedding3_horti = Wedding.new({
   title: "Chic",
   description: "Cérémonie chic, thème Blanc",
   capacity: 78,
@@ -118,7 +106,7 @@ wedding3_horti = Wedding.create({
 
 weddings << wedding3_horti
 
-wedding4_horti = Wedding.create({
+wedding4_horti = Wedding.new({
   title: "Piscine Champagne",
   description: "Tant qu'il y aura des bulles ...",
   capacity: 89,
@@ -130,7 +118,7 @@ wedding4_horti = Wedding.create({
 
 weddings << wedding4_horti
 
-wedding5_aurel = Wedding.create({
+wedding5_aurel = Wedding.new({
   title: "Trinquons !",
   description: "Quand certains font les trains, nous on fait ...",
   capacity: 132,
@@ -142,7 +130,7 @@ wedding5_aurel = Wedding.create({
 
 weddings << wedding5_aurel
 
-wedding6_aurel = Wedding.create({
+wedding6_aurel = Wedding.new({
   title: "Libertin",
   description: "Interdit -18 ans",
   capacity: 69,
