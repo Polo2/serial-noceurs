@@ -4,21 +4,28 @@
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
-    <div class="row">
-      <div class="col-xs-6">
-        <%= f.input :first_name, required: true %>
-      </div>
-      <div class="col-xs-6">
-        <%= f.input :last_name, required: true %>
-      </div>
-    </div>
+      <div class="form-inputs">
+
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :first_name, required: true %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :last_name, required: true %>
+          </div>
+        </div>
+
         <%= f.input :birthday,  start_year: Time.now.year - 99, end_year: Time.now.year - 8, order: [:day, :month, :year], required: true %>
         <%= f.input :location, required: true %>
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true %>
-      <%= f.button :submit, "Sign up" %>
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :avatar_url, as: :attachinary %>
+      </div>
 
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
