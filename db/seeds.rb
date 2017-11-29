@@ -15,9 +15,8 @@ User.destroy_all
 
 puts "recuperons 1 user, sans image d'avatar pour l'instant ..."
 
-users = []
 
-new_user_polo = User.new({
+new_user_polo = User.create({
     first_name: "Paul",
     last_name: "de Bodi",
     birthday: Date.new(1986,3,4),
@@ -28,9 +27,8 @@ new_user_polo = User.new({
     avatar_url_url: "https://avatars1.githubusercontent.com/u/32060402?s=400&u=33d0f8f8d6ac9979437727646e169c3173784a42&v=4"
     })
 
-users << new_user_polo
 
-new_user_aurel = User.new({
+new_user_aurel = User.create({
     first_name: "Aurelie",
     last_name: "Dubs",
     birthday: Date.new(1983,1,31),
@@ -41,9 +39,8 @@ new_user_aurel = User.new({
     avatar_url_url: "https://avatars0.githubusercontent.com/u/32846131?s=400&v=4"
     })
 
-users << new_user_aurel
 
-new_user_horti = User.new({
+new_user_horti = User.create({
     first_name: "Hor",
     last_name: "Titi",
     birthday: Date.new(1992,3,30),
@@ -54,13 +51,7 @@ new_user_horti = User.new({
     avatar_url_url: "https://avatars0.githubusercontent.com/u/32671308?s=400&v=4"
     })
 
-users << new_user_horti
 
-users.each do |user|
-  user.save
-end
-
-puts "#{users.length} seed-users créés"
 
 
 puts "id horti : #{new_user_horti.id}"
@@ -68,9 +59,9 @@ puts "id aurelie : #{new_user_aurel.id}"
 puts "id polo : #{new_user_polo.id}"
 
 puts "créons 6 mariages maintenant"
-weddings = []
 
-wedding1_polo = Wedding.new({
+
+wedding1_polo = Wedding.create({
   title: "collaboratif",
   description: "Mariage collaboratif en Bourgogne",
   capacity: 51,
@@ -80,9 +71,9 @@ wedding1_polo = Wedding.new({
   photo_url: 'https://www.le-pigeonnier-colbert.fr/wp-content/uploads/Abbaye-de-Pontigny-1040x559.jpg'
   })
 
-weddings << wedding1_polo
 
-wedding2_polo = Wedding.new({
+
+wedding2_polo = Wedding.create({
   title: "Traditionnel",
   description: "Célébrons notre amour à la mairie",
   capacity: 33,
@@ -92,9 +83,9 @@ wedding2_polo = Wedding.new({
   photo_url: 'http://ekladata.com/iFXMrulEPn1hJsuM-eAZtYl9Mzk.jpg',
   })
 
-weddings << wedding2_polo
 
-wedding3_horti = Wedding.new({
+
+wedding3_horti = Wedding.create({
   title: "Chic",
   description: "Cérémonie chic, thème Blanc",
   capacity: 78,
@@ -104,9 +95,9 @@ wedding3_horti = Wedding.new({
   photo_url: 'http://www.chateauversailles-spectacles.fr/sites/default/files/styles/largeur_page/public/en-tete-site-festival2016-nuits-orangerie-version.jpg?itok=Zkq2UlQd',
   })
 
-weddings << wedding3_horti
 
-wedding4_horti = Wedding.new({
+
+wedding4_horti = Wedding.create({
   title: "Piscine Champagne",
   description: "Tant qu'il y aura des bulles ...",
   capacity: 89,
@@ -116,9 +107,9 @@ wedding4_horti = Wedding.new({
   photo_url: 'http://cdn1.greatfon.com/uploads/picture/452/129/129452/sunset-wateksuite-exterior.jpg'
   })
 
-weddings << wedding4_horti
 
-wedding5_aurel = Wedding.new({
+
+wedding5_aurel = Wedding.create({
   title: "Trinquons !",
   description: "Quand certains font les trains, nous on fait ...",
   capacity: 132,
@@ -128,9 +119,9 @@ wedding5_aurel = Wedding.new({
   photo_url: 'https://www.theknot.com/assets/topic_pages/wedding-vows-ceremony-de390170d87b481e073afef3e03a2c7b4a5d7e0b1de1036a40816f80fa85a6cd.jpg'
   })
 
-weddings << wedding5_aurel
 
-wedding6_aurel = Wedding.new({
+
+wedding6_aurel = Wedding.create({
   title: "Libertin",
   description: "Interdit -18 ans",
   capacity: 69,
@@ -140,12 +131,7 @@ wedding6_aurel = Wedding.new({
   photo_url: 'http://fr.web.img6.acsta.net/videothumbnails/15/01/22/09/19/126413.jpg'
   })
 
-weddings << wedding6_aurel
 
-weddings.each do |wedd|
-  wedd.save
-end
 
-puts "#{weddings.length} mariage créé(s)"
 
 puts "seed done !"
