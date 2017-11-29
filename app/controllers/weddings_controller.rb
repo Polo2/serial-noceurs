@@ -26,6 +26,7 @@ class WeddingsController < ApplicationController
   end
 
   def update
+    ap wedding_params
     @wedding = Wedding.update(wedding_params)
     redirect_to wedding_path
   end
@@ -46,6 +47,6 @@ class WeddingsController < ApplicationController
   # end
 
   def wedding_params
-    params.require(:wedding).permit(:title, :description, :date, :location, :capacity)
+    params.require(:wedding).permit(:title, :description, :date, :location, :capacity, :photo)
   end
 end
