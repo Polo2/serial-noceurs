@@ -28,7 +28,7 @@ class WeddingsController < ApplicationController
 
   def update
     ap wedding_params
-    @wedding = Wedding.update(wedding_params)
+    @wedding.update(wedding_params)
     redirect_to wedding_path
   end
 
