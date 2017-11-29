@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :weddings
   # has_many :reviews
   # has_many :registries
+  has_attachment :avatar_url
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
