@@ -1,21 +1,20 @@
 <h1>Weddings to come...</h1>
 
-
 <div class="row">
   <% @weddings.each do |wedding| %>
     <div class="col-xs-12 col-sm-4">
-      <div class=“card” style=“background-image: url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)“>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)">
       <div class="card-category"><%= wedding.title %></div>
       <div class="card-description">
-        <h6><%= wedding.location %><%= wedding.capacity %></h6>
+        <h6><%= wedding.location %> | <%= wedding.capacity %></h6>
       </div>
-      <%= cl_image_tag avatar_url.path, class: "card-user" %>
-      # <img class="card-user" src="assets/couple.png">
-      # <a class="card-link" href="#" ></a>
-      <% link_to wedding_path(wedding), class: "card-link" %>
+      <a class="card-link" href="<%= wedding_path(wedding) %>" ></a>
+
     </div>
   </div>
+  <% end %>
 </div>
+
 
 
 
