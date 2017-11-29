@@ -6,6 +6,7 @@ class WeddingsController < ApplicationController
   end
 
   def show
+    @weddings = Wedding.all
   end
 
   def new
