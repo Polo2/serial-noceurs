@@ -37,6 +37,7 @@ new_user_polo = User.new({
     email: "polo@bodi.fr",
     password: "333333",
     password_confirmation: "333333",
+    # avatar_url_url: "https://avatars1.githubusercontent.com/u/32060402?s=400&u=33d0f8f8d6ac9979437727646e169c3173784a42&v=4"
     })
 
 users << new_user_polo
@@ -49,6 +50,7 @@ new_user_aurel = User.new({
     email: "aure@lie.fr",
     password: "222222",
     password_confirmation: "222222",
+    # avatar_url_url: "https://avatars0.githubusercontent.com/u/32846131?s=400&v=4"
     })
 
 users << new_user_aurel
@@ -61,6 +63,7 @@ new_user_horti = User.new({
     email: "hor@titi.fr",
     password: "111111",
     password_confirmation: "111111",
+    # avatar_url_url: "https://avatars0.githubusercontent.com/u/32671308?s=400&v=4"
     })
 
 users << new_user_horti
@@ -73,74 +76,88 @@ puts "#{users.length} seed-users créés"
 
 
 puts "id horti : #{new_user_horti.id}"
+puts "id aurelie : #{new_user_aurel.id}"
+puts "id polo : #{new_user_polo.id}"
 
+puts "créons 6 mariages maintenant"
+weddings = []
 
-wedding1 = Wedding.new({
-  title: "Traditionnel",
-  description: "Mariage traditionnel en Bourgogne",
-  capacity: 33,
-  user_id: 7,
-  date: Date.new,
-  location: "Bourgogne",
-  photo_url: 'https://picsum.photos/200/300/?random'
+wedding1_polo = Wedding.new({
+  title: "collaboratif",
+  description: "Mariage collaboratif en Bourgogne",
+  capacity: 51,
+  user_id: new_user_polo.id,
+  date: Date.new(2018, 5, 19),
+  location: "Pontigny",
+  photo_url: 'https://www.le-pigeonnier-colbert.fr/wp-content/uploads/Abbaye-de-Pontigny-1040x559.jpg'
   })
 
-wedding2 = Wedding.new({
+weddings << wedding1_polo
+
+wedding2_polo = Wedding.new({
   title: "Traditionnel",
-  description: "Célébrons notre amour dans un château",
+  description: "Célébrons notre amour à la mairie",
   capacity: 33,
-  user_id: 7,
-  date: Date.new,
-  location: "Orléans",
+  user_id: new_user_polo.id,
+  date: Date.new(2018,1,27),
+  location: "Villeurbanne",
+  photo_url: 'http://ekladata.com/iFXMrulEPn1hJsuM-eAZtYl9Mzk.jpg',
   })
 
-wedding3 = Wedding.create({
+weddings << wedding2_polo
+
+wedding3_horti = Wedding.create({
   title: "Chic",
   description: "Cérémonie chic, thème Blanc",
-  capacity: 33,
-  user_id: 7,
-  date: Date.new,
+  capacity: 78,
+  user_id: new_user_horti.id,
+  date: Date.new(2018,7,7),
   location: "Versailles",
-  photo: 'https://picsum.photos/200/300/?random'
+  photo_url: 'http://www.chateauversailles-spectacles.fr/sites/default/files/styles/largeur_page/public/en-tete-site-festival2016-nuits-orangerie-version.jpg?itok=Zkq2UlQd',
   })
 
-wedding4 = Wedding.create({
-  title: "Populaire",
-  description: "A la bonne franquette",
-  capacity: 33,
-  user_id: 7,
-  date: Date.new,
-  location: "Berry",
-  photo: 'https://picsum.photos/200/300/?random'
+weddings << wedding3_horti
+
+wedding4_horti = Wedding.create({
+  title: "Piscine Champagne",
+  description: "Tant qu'il y aura des bulles ...",
+  capacity: 89,
+  user_id: new_user_horti.id,
+  date: Date.new(2020,6,29),
+  location: "Saint-Didier au Mont d'or",
+  photo_url: 'http://cdn1.greatfon.com/uploads/picture/452/129/129452/sunset-wateksuite-exterior.jpg'
   })
 
-wedding5 = Wedding.create({
-  title: "Chic",
-  description: "Piscine, Champagne",
-  capacity: 33,
-  user_id: 7,
-  date: Date.new,
-  location: "Ecully",
-  photo: 'https://picsum.photos/200/300/?random'
+weddings << wedding4_horti
+
+wedding5_aurel = Wedding.create({
+  title: "Trinquons !",
+  description: "Quand certains font les trains, nous on fait ...",
+  capacity: 132,
+  user_id: new_user_aurel.id,
+  date: Date.new(2018,12,31),
+  location: "Valence",
+  photo_url: 'https://www.theknot.com/assets/topic_pages/wedding-vows-ceremony-de390170d87b481e073afef3e03a2c7b4a5d7e0b1de1036a40816f80fa85a6cd.jpg'
   })
 
-wedding6 = Wedding.create({
+weddings << wedding5_aurel
+
+wedding6_aurel = Wedding.create({
   title: "Libertin",
   description: "Interdit -18 ans",
-  capacity: 33,
-  user_id: 7,
-  date: Date.new,
-  location: "Les chandelles",
-  photo: 'https://picsum.photos/200/300/?random'
+  capacity: 69,
+  user_id: new_user_aurel.id,
+  date: Date.new(2018,2,14),
+  location: "Paris",
+  photo_url: 'http://fr.web.img6.acsta.net/videothumbnails/15/01/22/09/19/126413.jpg'
   })
 
-# puts "7 mariage créés"
+weddings << wedding6_aurel
 
-# if wedding1.save
-#   puts "wedding 1 saved"
-# else
-#   puts "wedding 1 not saved"
-# end
+weddings.each do |wedd|
+  wedd.save
+end
 
+puts "#{weddings.length} mariage créé(s)"
 
 puts "seed done !"
