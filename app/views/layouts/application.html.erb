@@ -9,13 +9,34 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= render 'devise/shared/flashes' %>
+
+
+    <%= render 'shared/components/explore_weddings', image_url: "https://a0.muscache.com/ac/pictures/39b36c59-7bf1-45da-b9a8-13bad3db5b26.jpg?interpolation=lanczos-none&size=large&output-format=jpg&output-quality=70
+", type: 'tradi' %>
+
+    <%= render 'shared/components/explore_weddings', image_url: "https://a0.muscache.com/ac/pictures/39b36c59-7bf1-45da-b9a8-13bad3db5b26.jpg?interpolation=lanczos-none&size=large&output-format=jpg&output-quality=70
+", type: 'tradi plus long' %>
+
+    <%= render 'shared/components/explore_weddings', image_url: "https://a0.muscache.com/ac/pictures/39b36c59-7bf1-45da-b9a8-13bad3db5b26.jpg?interpolation=lanczos-none&size=large&output-format=jpg&output-quality=70
+", type: 'hey' %>
+
+    <%=
+      # render 'layouts/navbar'
+    %>
+    <%=
+     # render 'devise/shared/flashes'
+    %>
       <div class="container">
-        <%= yield %>
+        <%=
+          # yield
+        %>
       </div>
-    <%= render 'layouts/footer' %>
-    <%= javascript_include_tag 'application' %>
+    <%=
+      # render 'layouts/footer'
+    %>
+    <%=
+      # javascript_include_tag 'application'
+    %>
     <%= cloudinary_js_config %>
   </body>
 </html>

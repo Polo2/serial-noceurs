@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+.title {
+  font-size: 20px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.explore {
+  height: 75px;
+  background-position: cover;
+  background-size: cover;
+  color: white;
+  position: relative;
+  border-radius: 2px;
+  padding: none;
+}
+
+.card_explore {
+  color: black;
+  text-shadow: none;
+  position: relative;
+  padding: 30px;
+  margin-left: none;
+}
+
+.col-xs-4 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.col-xs-4 {
+  padding: 3px;
+}
+
+.col-xs-12 {
+  border: 1px solid #C0C0C0;
+  padding: 2px;
+  border-radius: 3px;
+}
