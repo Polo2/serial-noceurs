@@ -3,3 +3,38 @@
 <p> Bientôt ici, un choix parmis les meilleurs mariages disponibles </p>
 
 <%= link_to "voir liste des mariages", weddings_path %>
+
+<h1>Weddings</h1>
+
+<div class="row">
+  <% @weddings.take(3).each do |wedding| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card" style="background-image: url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)">
+        <div class="card-category" >
+          <h6><%= wedding.title %></h6>
+        </div>
+        <div class="card-description">
+          <h6><%= wedding.location %> / <%= wedding.capacity %></h6>
+        </div>
+        <a class="card-link"><% link_to wedding_path(wedding) %></a>
+    </div>
+  </div>
+<% end %>
+
+<h1>Expériences</h1>
+
+<div class="row">
+  <% @weddings.take(3).each do |wedding| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card" style="background-image: url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)">
+        <div class="card-category" >
+          <h6><%= wedding.title %></h6>
+        </div>
+        <div class="card-description">
+          <h6><%= wedding.location %> / <%= wedding.capacity %></h6>
+        </div>
+        <a class="card-link"><% link_to wedding_path(wedding) %></a>
+    </div>
+  </div>
+<% end %>
+
