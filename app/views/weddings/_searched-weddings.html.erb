@@ -1,0 +1,18 @@
+
+<% location = params[:location] %>
+<% rayon = 299 %>
+
+
+<% if location %>
+  <% if Wedding.near( location , rayon ).empty?  %>
+    <p> Il n'y a pas de mariage où s'incruster à moins de <%= rayon %> km de <%= location %></p>
+    <i class="fa fa-car" aria-hidden="true"></i>
+    <p>Mais tant d'autres mariages vous attendent ci-dessous !!</p>
+    <i class="fa fa-plane" aria-hidden="true"></i>
+  <% else %>
+    <p>Ci-dessous, la liste de tous les mariages à <%= rayon %> km autour de <%= location %></p>
+    <% @weddings = Wedding.near( location , rayon ) %>
+  <% end %>
+<% else %>
+  <p>Recherce vide : rien n'a changé </p>
+<% end %>

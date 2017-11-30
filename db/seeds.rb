@@ -67,7 +67,7 @@ wedding1_polo = Wedding.create({
   capacity: 51,
   user_id: new_user_polo.id,
   date: Date.new(2018, 5, 19),
-  location: "Pontigny",
+  location: "Abbaye de Pontigny",
   price: 10,
   photo_url: 'https://www.le-pigeonnier-colbert.fr/wp-content/uploads/Abbaye-de-Pontigny-1040x559.jpg'
   })

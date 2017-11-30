@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130115137) do
+ActiveRecord::Schema.define(version: 20171130142842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20171130115137) do
     t.datetime "updated_at",  null: false
     t.string   "photo"
     t.integer  "price"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_weddings_on_user_id", using: :btree
   end
 
