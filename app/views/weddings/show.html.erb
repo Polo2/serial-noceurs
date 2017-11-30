@@ -28,6 +28,7 @@
         <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
         <%= link_to 'Back', weddings_path %>
       <% else %>
+      <%= link_to 'Send Message to Wedder', new_wedding_message_path(@wedding) %> |
       <%= link_to 'Back', weddings_path %>
     </div>
 

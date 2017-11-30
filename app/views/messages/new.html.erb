@@ -4,7 +4,8 @@
   <div class="form-inputs">
     <%= f.input :title, label: 'Message Subject', error: 'Subject mandatory, please specify one' %>
     <%= f.input :content, placeholder: 'Write your message here' %>
-    <%= f.input type="hidden"  %>
+    <%= f.input :receiver_id, as: :hidden %>
+    <%= f.input :sender_id, as: :hidden %>
     <%= f.button :submit, label: 'Send' %>
   </div>
 <% end %>
