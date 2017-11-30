@@ -23,8 +23,9 @@
       <div class="dropdown">
         <a href="" class="navbar-wagon-link dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">Messages</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Private Messages</a></li>
-          <li><a href="#">Notifications</a></li>
+          <li>
+            <%= link_to messages_path do %> <i class="fa fa-envelope"></i> Private Messages
+              <% end %>
         </ul>
       </div>
     </div>
@@ -64,9 +65,11 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Wedder</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Sign out</a></li>
+        <li><%= link_to new_wedding_path do %><i class="fa fa-plus" ></i>Become a wedder</a><% end %></li>
+        <li><%= link_to messages_path do %><i class="fa fa-envelope"></i> Private Messages<% end %></li>
+        <li><%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Log out, sure?"} do %>
+                <i class="fa fa-sign-out"></i>  Sign out
+                <% end %></li>
       </ul>
     </div>
   </div>

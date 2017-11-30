@@ -1,0 +1,10 @@
+<h2></h2>
+
+<%= simple_form_for(@message) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title, label: 'Message Subject', error: 'Subject mandatory, please specify one' %>
+    <%= f.input :content, placeholder: 'Write your message here' %>
+    <%= f.input type="hidden"  %>
+    <%= f.button :submit, label: 'Send' %>
+  </div>
+<% end %>

@@ -10,8 +10,9 @@
       <%= f.input :description, required: true %>
       <%= f.input :date,  start_year: Time.now.year, end_year: Time.now.year + 8, order: [:day, :month, :year], required: true, class: "inline" %>
       <%= f.input :location, required: true %>
-      <%= f.input :capacity, required: true %>
-      <%= f.input :photo, as: :attachinary %>
+      <%= f.input :capacity, required: true, numericality: { only_integer: true, greater_than: 0}, hint: ("Possibility of guests") %>
+      <%= f.input :price, required: true, numericality: { only_integer: true, greater_than: 0 }, hint: ("Unity price per one serial noceur") %>
+      <%= f.input :photo,required: true, as: :attachinary %>
     </div>
 
 
