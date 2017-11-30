@@ -6,7 +6,10 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :weddings
-  has_many :messages
+  has_many :received_messages, foreign_key: 'receiver_id', class_name: 'Message'
+  has_many :sent_messages, foreign_key: 'sender_id', class_name: 'Message'
+
+
   # has_many :reviews
   # has_many :registries
   has_attachment :avatar_url
@@ -30,6 +33,13 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+
+  def last_message(user)
+    Message.where('(sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?)', id, user.id, user.id, id)
+           .order(created_at: :desc)
+           .first
   end
 end
 

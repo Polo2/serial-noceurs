@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :weddings
-  resources :messages, only: [:index, :new, :create, :update, :destroy]
+  resources :weddings do
+    resources :messages, only: [:new, :index]
+  end
+  resources :messages, only: [:index, :create, :update, :destroy]
 
   resources :registries
 
