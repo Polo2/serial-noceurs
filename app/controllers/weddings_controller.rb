@@ -2,11 +2,12 @@ class WeddingsController < ApplicationController
   before_action :set_wedding, only: [:show, :edit, :update, :destroy]
 
   def index
-    @weddings = Wedding.all
+    @weddings = Wedding.future
+    @experiences = Wedding.passed
   end
 
   def show
-    @weddings = Wedding.all
+    @weddings = Wedding.future
   end
 
   def new

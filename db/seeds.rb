@@ -79,7 +79,7 @@ wedding2_polo = Wedding.create({
   description: "Célébrons notre amour à la mairie",
   capacity: 33,
   user_id: new_user_polo.id,
-  date: Date.new(2018,1,27),
+  date: Date.new(2017,1,27),
   location: "Villeurbanne",
   price: 10,
   photo_url: 'http://ekladata.com/iFXMrulEPn1hJsuM-eAZtYl9Mzk.jpg',
