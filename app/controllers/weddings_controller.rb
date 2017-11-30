@@ -28,6 +28,7 @@ class WeddingsController < ApplicationController
 
   def update
     ap wedding_params
+    current_user.weddings.find(params[:user_id])
     @wedding.update(wedding_params)
     redirect_to wedding_path
   end
