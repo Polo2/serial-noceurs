@@ -16,7 +16,8 @@
         <i class="fa fa-glass" aria-hidden="true"></i>
         <%= @wedding.capacity %>
         <i class="fa fa-price" aria-hidden="true"></i>
-        <p>50€</p>
+        <%= @wedding.price %>
+
       <hr>
       <p>
         <%= @wedding.description %>
@@ -26,11 +27,30 @@
         <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
         <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
       <% end %>
+
       <%= link_to 'Back', weddings_path %>
     </div>
   </div>
+  <div class="col-xs-12 col-sm-4">
+    <div class="wedding-registry-form">
+      <div class="registry-info">
+        <h4>Book this wedding</h4>
+        <h4><%= @registry.wedding.price %> €</h4>
+      </div>
+
+      <%= simple_form_for(@registry) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :guest, collection: 1..@registry.wedding.capacity %>
+        </div>
 
 
+        <div class="form-actions">
+          <%= f.button :submit, , class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

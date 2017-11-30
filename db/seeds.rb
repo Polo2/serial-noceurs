@@ -13,7 +13,7 @@ Wedding.destroy_all
 puts "vider la data base des users"
 User.destroy_all
 
-puts "recuperons 1 user, sans image d'avatar pour l'instant ..."
+puts "Création des 3 users"
 
 
 new_user_polo = User.create({
@@ -58,7 +58,7 @@ puts "id horti : #{new_user_horti.id}"
 puts "id aurelie : #{new_user_aurel.id}"
 puts "id polo : #{new_user_polo.id}"
 
-puts "créons 6 mariages maintenant"
+puts "Créations de 6 mariages maintenant"
 
 
 wedding1_polo = Wedding.create({
@@ -68,6 +68,7 @@ wedding1_polo = Wedding.create({
   user_id: new_user_polo.id,
   date: Date.new(2018, 5, 19),
   location: "Pontigny",
+  price: 10,
   photo_url: 'https://www.le-pigeonnier-colbert.fr/wp-content/uploads/Abbaye-de-Pontigny-1040x559.jpg'
   })
 
@@ -80,6 +81,7 @@ wedding2_polo = Wedding.create({
   user_id: new_user_polo.id,
   date: Date.new(2018,1,27),
   location: "Villeurbanne",
+  price: 10,
   photo_url: 'http://ekladata.com/iFXMrulEPn1hJsuM-eAZtYl9Mzk.jpg',
   })
 
@@ -92,6 +94,7 @@ wedding3_horti = Wedding.create({
   user_id: new_user_horti.id,
   date: Date.new(2018,7,7),
   location: "Versailles",
+  price: 12,
   photo_url: 'http://www.chateauversailles-spectacles.fr/sites/default/files/styles/largeur_page/public/en-tete-site-festival2016-nuits-orangerie-version.jpg?itok=Zkq2UlQd',
   })
 
@@ -104,6 +107,7 @@ wedding4_horti = Wedding.create({
   user_id: new_user_horti.id,
   date: Date.new(2020,6,29),
   location: "Saint-Didier au Mont d'or",
+  price: 13,
   photo_url: 'http://cdn1.greatfon.com/uploads/picture/452/129/129452/sunset-wateksuite-exterior.jpg'
   })
 
@@ -115,6 +119,7 @@ wedding5_aurel = Wedding.create({
   capacity: 132,
   user_id: new_user_aurel.id,
   date: Date.new(2018,12,31),
+  price: 14,
   location: "Valence",
   photo_url: 'https://www.theknot.com/assets/topic_pages/wedding-vows-ceremony-de390170d87b481e073afef3e03a2c7b4a5d7e0b1de1036a40816f80fa85a6cd.jpg'
   })
@@ -128,7 +133,8 @@ wedding6_aurel = Wedding.create({
   user_id: new_user_aurel.id,
   date: Date.new(2018,2,14),
   location: "Paris",
-  photo_url: 'http://fr.web.img6.acsta.net/videothumbnails/15/01/22/09/19/126413.jpg'
+  price: 14,
+  photo_url: 'https://junebugweddings.com/images/contests/best-of-wedding/2016/best-of-wedding-2016-8b5e81b3b7.jpg'
   })
 
 
