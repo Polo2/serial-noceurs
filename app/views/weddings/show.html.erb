@@ -17,6 +17,7 @@
         <%= @wedding.capacity %>
         <i class="fa fa-price" aria-hidden="true"></i>
         <%= @wedding.price %>
+
       <hr>
       <p>
         <%= @wedding.description %>
@@ -24,12 +25,12 @@
       <hr>
       <% if current_user[:id] == @wedding[:user_id] %>
         <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
-        <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% else %>
+        <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <% end %>
+
       <%= link_to 'Back', weddings_path %>
     </div>
   </div>
-
   <div class="col-xs-12 col-sm-4">
     <div class="wedding-registry-form">
       <div class="registry-info">
@@ -42,6 +43,7 @@
         <div class="form-inputs">
           <%= f.input :guest, collection: 1..@registry.wedding.capacity %>
         </div>
+
 
         <div class="form-actions">
           <%= f.button :submit, , class: "btn btn-primary" %>
