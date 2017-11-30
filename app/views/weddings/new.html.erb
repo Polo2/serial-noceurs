@@ -1,5 +1,8 @@
 <h2>Create a new wedding</h2>
 
+<p> Vous cherchez à attirer les meilleures serail noceurs ? </p>
+<p> Proposez leur ici votre mariage, en remplissant au mieux les informations nécessaires </p>
+
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <%= simple_form_for(@wedding) do |f| %>
@@ -10,7 +13,8 @@
         <%= f.input :description, required: true %>
         <%= f.input :date,  start_year: Time.now.year, end_year: Time.now.year + 8, order: [:day, :month, :year], required: true, class: "inline" %>
         <%= f.input :location, required: true %>
-        <%= f.input :capacity, required: true %>
+        <%= f.input :capacity, required: true, numericality: { only_integer: true, greater_than: 0}, hint: ("Combien d'invitations disponibles aux serial-noceurs ?") %>
+        <%= f.input :price, numericality: { only_integer: true, greater_than: 0 }, hint: ("Prix unitaire d'une place pour serial-noceurs") %>
         <%= f.input :photo, as: :attachinary %>
       </div>
 
