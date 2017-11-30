@@ -4,23 +4,53 @@
 
 <div class="show">
 
-  <h1><%= @wedding.title %></h1>
-  <h4>The wedding</h4>
-    <i class="fa fa-calendar" aria-hidden="true"></i>
-    <%= @wedding.date %>
-    <i class="fa fa-globe" aria-hidden="true"></i>
-    <%= @wedding.location %>
-    <i class="fa fa-glass" aria-hidden="true"></i>
-    <%= @wedding.capacity %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
 
-  <hr>
+      <h1><%= @wedding.title %></h1>
+      <h4>The wedding</h4>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <%= @wedding.date %>
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <%= @wedding.location %>
+        <i class="fa fa-glass" aria-hidden="true"></i>
+        <%= @wedding.capacity %>
+        <i class="fa fa-price" aria-hidden="true"></i>
+        <%= @wedding.price %>
+      <hr>
+      <p>
+        <%= @wedding.description %>
+      </p>
+      <hr>
+      <% if current_user[:id] == @wedding[:user_id] %>
+        <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+        <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% else %>
+      <%= link_to 'Back', weddings_path %>
+    </div>
+  </div>
 
-  <p>
-    <%= @wedding.description %>
-  </p>
-  <hr>
+  <div class="col-xs-12 col-sm-4">
+    <div class="wedding-registry-form">
+      <div class="registry-info">
+        <h4>Book this wedding</h4>
+        <h4><%= @registry.wedding.price %> €</h4>
+      </div>
 
-  <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
-  <%= link_to 'Back', weddings_path %>
+      <%= simple_form_for(@registry) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :guest, collection: 1..@registry.wedding.capacity %>
+        </div>
 
+        <div class="form-actions">
+          <%= f.button :submit, , class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
