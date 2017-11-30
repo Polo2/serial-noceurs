@@ -2,11 +2,13 @@ class WeddingsController < ApplicationController
   before_action :set_wedding, only: [:show, :edit, :update, :destroy]
 
   def index
-    @weddings = Wedding.all
+    @weddings = Wedding.future
+    @experiences = Wedding.passed
   end
 
   def show
-    @weddings = Wedding.all
+    @weddings = Wedding.future
+    @registry = Registry.new
   end
 
   def new
@@ -27,7 +29,7 @@ class WeddingsController < ApplicationController
   end
 
   def update
-    ap wedding_params
+    current_user.weddings.find(params[:user_id])
     @wedding.update(wedding_params)
     redirect_to wedding_path
   end

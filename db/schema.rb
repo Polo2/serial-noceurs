@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171130140453) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+
   create_table "messages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -37,6 +38,16 @@ ActiveRecord::Schema.define(version: 20171130140453) do
     t.datetime "updated_at",  null: false
     t.integer  "sender_id"
     t.integer  "receiver_id"
+
+  create_table "registries", force: :cascade do |t|
+    t.integer  "guest"
+    t.integer  "user_id"
+    t.integer  "wedding_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_registries_on_user_id", using: :btree
+    t.index ["wedding_id"], name: "index_registries_on_wedding_id", using: :btree
+
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,7 +86,10 @@ ActiveRecord::Schema.define(version: 20171130140453) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "photo"
+    t.integer  "price"
     t.index ["user_id"], name: "index_weddings_on_user_id", using: :btree
   end
 
+  add_foreign_key "registries", "users"
+  add_foreign_key "registries", "weddings"
 end

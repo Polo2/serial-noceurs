@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :weddings
   resources :messages, only: [:index, :new, :create, :update, :destroy]
 
+  resources :registries
+
   mount Attachinary::Engine => "/attachinary"
 
   get 'users/profile', to: 'pages#profile'
