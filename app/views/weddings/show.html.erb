@@ -4,23 +4,35 @@
 
 <div class="show">
 
-  <h1><%= @wedding.title %></h1>
-  <h4>The wedding</h4>
-    <i class="fa fa-calendar" aria-hidden="true"></i>
-    <%= @wedding.date %>
-    <i class="fa fa-globe" aria-hidden="true"></i>
-    <%= @wedding.location %>
-    <i class="fa fa-glass" aria-hidden="true"></i>
-    <%= @wedding.capacity %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
 
-  <hr>
+      <h1><%= @wedding.title %></h1>
+      <h4>The wedding</h4>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <%= @wedding.date %>
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <%= @wedding.location %>
+        <i class="fa fa-glass" aria-hidden="true"></i>
+        <%= @wedding.capacity %>
+        <i class="fa fa-price" aria-hidden="true"></i>
+        <p>50€</p>
+      <hr>
+      <p>
+        <%= @wedding.description %>
+      </p>
+      <hr>
+      <% if current_user[:id] == @wedding[:user_id] %>
+        <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+        <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <% end %>
+      <%= link_to 'Back', weddings_path %>
+    </div>
+  </div>
 
-  <p>
-    <%= @wedding.description %>
-  </p>
-  <hr>
-
-  <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
-  <%= link_to 'Back', weddings_path %>
 
 </div>
+
+
+
+
