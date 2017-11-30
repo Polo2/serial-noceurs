@@ -5,4 +5,5 @@ skip_before_action :authenticate_user!, only: :home
     @weddings = Wedding.all
   end
 
+
 end
