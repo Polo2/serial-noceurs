@@ -6,4 +6,5 @@ skip_before_action :authenticate_user!, only: :home
     @experiences = Wedding.passed
   end
 
+
 end
