@@ -4,10 +4,18 @@ class Wedding < ApplicationRecord
   # has_many :registries
   has_attachment :photo
 
+  def passed?(wedding)
+    @wedding = wedding
+    if @wedding.date < Date.current
+      return true
+    else
+      return false
+    end
+  end
 
   private
 
-    def self.future()
+  def self.future()
     where('date > ?', Date.current)
   end
 

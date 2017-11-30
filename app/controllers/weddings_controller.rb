@@ -7,7 +7,6 @@ class WeddingsController < ApplicationController
   end
 
   def show
-    @weddings = Wedding.future
     @registry = Registry.new
   end
 
@@ -29,7 +28,7 @@ class WeddingsController < ApplicationController
   end
 
   def update
-    current_user.weddings.find(params[:user_id])
+    current_user.weddings.find(params[:id])
     @wedding.update(wedding_params)
     redirect_to wedding_path
   end
@@ -50,6 +49,6 @@ class WeddingsController < ApplicationController
   # end
 
   def wedding_params
-    params.require(:wedding).permit(:title, :description, :date, :location, :capacity, :photo)
+    params.require(:wedding).permit(:title, :description, :date, :location, :capacity, :photo, :price)
   end
 end
