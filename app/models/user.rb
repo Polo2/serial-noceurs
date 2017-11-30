@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :weddings
+  has_many :messages
   # has_many :reviews
   # has_many :registries
   has_attachment :avatar_url
