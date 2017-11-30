@@ -69,7 +69,6 @@ wedding1_polo = Wedding.create({
   date: Date.new(2018, 5, 19),
   location: "Pontigny",
   price: 10,
-  statut: false,
   photo_url: 'https://www.le-pigeonnier-colbert.fr/wp-content/uploads/Abbaye-de-Pontigny-1040x559.jpg'
   })
 
@@ -83,7 +82,6 @@ wedding2_polo = Wedding.create({
   date: Date.new(2018,1,27),
   location: "Villeurbanne",
   price: 10,
-  statut: true,
   photo_url: 'http://ekladata.com/iFXMrulEPn1hJsuM-eAZtYl9Mzk.jpg',
   })
 
@@ -97,7 +95,6 @@ wedding3_horti = Wedding.create({
   date: Date.new(2018,7,7),
   location: "Versailles",
   price: 12,
-  statut: true,
   photo_url: 'http://www.chateauversailles-spectacles.fr/sites/default/files/styles/largeur_page/public/en-tete-site-festival2016-nuits-orangerie-version.jpg?itok=Zkq2UlQd',
   })
 
@@ -111,7 +108,6 @@ wedding4_horti = Wedding.create({
   date: Date.new(2020,6,29),
   location: "Saint-Didier au Mont d'or",
   price: 13,
-  statut: true,
   photo_url: 'http://cdn1.greatfon.com/uploads/picture/452/129/129452/sunset-wateksuite-exterior.jpg'
   })
 
@@ -124,7 +120,6 @@ wedding5_aurel = Wedding.create({
   user_id: new_user_aurel.id,
   date: Date.new(2018,12,31),
   price: 14,
-  statut: true,
   location: "Valence",
   photo_url: 'https://www.theknot.com/assets/topic_pages/wedding-vows-ceremony-de390170d87b481e073afef3e03a2c7b4a5d7e0b1de1036a40816f80fa85a6cd.jpg'
   })
@@ -139,7 +134,6 @@ wedding6_aurel = Wedding.create({
   date: Date.new(2018,2,14),
   location: "Paris",
   price: 14,
-  statut: false,
   photo_url: 'https://junebugweddings.com/images/contests/best-of-wedding/2016/best-of-wedding-2016-8b5e81b3b7.jpg'
   })
 
