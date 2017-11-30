@@ -1,0 +1,9 @@
+<h2>My profile</h2>
+
+<%= current_user.first_name %>
+<%= current_user.last_name %>
+<%= current_user.birthday %>
+
+<%= current_user.weddings %>
+
+<%= link_to "Edit my profile", edit_user_registration_path(current_user) %>
