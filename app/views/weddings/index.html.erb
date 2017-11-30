@@ -1,5 +1,19 @@
 <h1>Weddings to come...</h1>
 
+
+<%= render '/weddings/searched-weddings' %>
+<!--  Bloc : Liste des mariages selon résultat de recherche, qui s'affiche si besoin
+if il existe une recherche et des resultat, je redefinis weddings par :
+@weddings  qui sont bien issus de la recherche
+"liste des mariages dans un rayon de 100km par rapport à "recherche"
+
+if il existe une recherche et pas de résultats, weddings reste identique
+"pas de mariage dans cette zone, mais voici notre selection"
+
+if pas de recherche, ce bloc ne s'affiche pas
+-->
+
+
 <div class="row">
   <% @weddings.each do |wedding| %>
     <div class="col-xs-12 col-sm-4">

@@ -22,6 +22,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'awesome_print'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
