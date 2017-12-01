@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :weddings do
-        resources :reviews, only: :create
+    resources :reviews, only: :create
   end
 
   resources :messages, only: [:index, :create, :update, :destroy]
