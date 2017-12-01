@@ -41,5 +41,9 @@ class User < ApplicationRecord
            .order(created_at: :desc)
            .first
   end
+
+  def avatar
+    avatar_url.path || "http://placehold.it/30x30"
+  end
 end
 

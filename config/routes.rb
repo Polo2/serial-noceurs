@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:index, :create, :update, :destroy]
 
+  resources :users, only: [] do
+    resources :inboxes, only: :index
+  end
+
   resources :registries
 
   mount Attachinary::Engine => "/attachinary"
