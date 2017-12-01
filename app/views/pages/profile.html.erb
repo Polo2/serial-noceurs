@@ -3,7 +3,7 @@
 
 <%= current_user.first_name %>
 <%= current_user.last_name %>
-<%= current_user.birthday %>
+<p> Birthday : <%= current_user.birthday %></p>
 
 
 <%= link_to "Edit my profile", edit_user_registration_path(current_user) %>
