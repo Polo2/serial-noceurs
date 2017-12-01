@@ -7,7 +7,7 @@ class Discussion
         message.sender
       end
     end
-    users.uniq
+    users = users.uniq
 
     users.map do |user|
       new(user, current_user)

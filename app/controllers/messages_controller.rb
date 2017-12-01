@@ -18,7 +18,7 @@ before_action :set_message, only: [:edit, :update, :destroy]
 
   def index
     @user_discussions = Discussion.for(current_user)
-    @user_id = current_user.id
+
 
     # @messages = Message.all
     # @sender = current_user

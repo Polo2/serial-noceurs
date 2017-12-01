@@ -53,7 +53,6 @@ new_user_horti = User.create({
 
 
 
-
 puts "id horti : #{new_user_horti.id}"
 puts "id aurelie : #{new_user_aurel.id}"
 puts "id polo : #{new_user_polo.id}"
@@ -137,7 +136,63 @@ wedding6_aurel = Wedding.create({
   photo_url: 'https://junebugweddings.com/images/contests/best-of-wedding/2016/best-of-wedding-2016-8b5e81b3b7.jpg'
   })
 
+puts "Création de 6 messages"
 
+Message.create!(
+  sender: new_user_polo,
+  receiver: new_user_aurel,
+  title: 'I want to come',
+  content: 'Hi Aurel, could I participate to your wedding?'
+)
+
+Message.create!(
+  sender: new_user_aurel,
+  receiver: new_user_polo,
+  title: 'RE: I want to come',
+  content: 'Hi Polo, of course ! You are welcome',
+)
+
+Message.create!(
+  sender: new_user_polo,
+  receiver: new_user_aurel,
+  title: 'RE: I want to come',
+  content: 'Thank you so much :) '
+)
+
+Message.create!(
+  sender: new_user_polo,
+  receiver: new_user_horti,
+  title: 'I want to come',
+  content: 'Hi Aurel, could I participate to your wedding?'
+)
+
+Message.create!(
+  sender: new_user_horti,
+  receiver: new_user_polo,
+  title: 'RE: I want to come',
+  content: 'Hi Polo, of course ! You are welcome',
+)
+
+Message.create!(
+  sender: new_user_polo,
+  receiver: new_user_horti,
+  title: 'RE: I want to come',
+  content: 'Thank you so much :) '
+)
+
+Message.create!(
+  sender: new_user_aurel,
+  receiver: new_user_horti,
+  title: 'Wedding together?',
+  content: 'Hello, can I come?'
+)
+
+Message.create!(
+  sender: new_user_horti,
+  receiver: new_user_aurel,
+  title: 'RE: Wedding together?',
+  content: 'Yes!',
+)
 
 
 puts "seed done !"
