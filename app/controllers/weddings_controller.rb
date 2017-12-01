@@ -8,6 +8,7 @@ class WeddingsController < ApplicationController
 
   def show
     @registry = Registry.new
+    @review = Review.find(params[:id])
   end
 
   def new

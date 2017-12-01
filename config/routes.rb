@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :weddings do
     resources :messages, only: [:new, :index]
   end
+
+  resources :weddings do
+        resources :reviews, only: :create
+  end
+
   resources :messages, only: [:index, :create, :update, :destroy]
 
   resources :registries
