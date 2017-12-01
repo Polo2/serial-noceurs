@@ -6,6 +6,7 @@ class RegistriesController < ApplicationController
   end
 
   def show
+    @wedding = Wedding.find(@registry.wedding_id)
   end
 
   def new
@@ -15,10 +16,11 @@ class RegistriesController < ApplicationController
   def create
     @registry = Registry.new(registry_params)
     @registry.user = current_user
+    @registry.wedding = Wedding.find(params[:wedding_id])
     if @registry.save
       redirect_to registry_path(@registry)
     else
-      render 'registries/new'
+      redirect_to wedding_path(@registry.wedding)
     end
   end
 
