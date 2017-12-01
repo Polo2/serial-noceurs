@@ -1,6 +1,6 @@
 <h1></h1>
 
-<h2> My Message </h2>
+<h2> Conversation </h2>
 
 <div class="container">
   <div class="row">
@@ -24,12 +24,12 @@
     </div>
     <div class="col-xs-12 col-sm-4">
       <%= simple_form_for(@message) do |f| %>
-        <div class="form-inputs pull-left">
+        <div class="form-inputs ">
           <%= f.input :title, label: 'Message Subject', error: 'Subject mandatory, please specify one' %>
           <%= f.input :content, placeholder: 'Write your message here' %>
           <%= f.input :receiver_id, as: :hidden %>
           <%= f.input :sender_id, as: :hidden %>
-          <%= f.button :submit, label: 'Send' %>
+          <div class="content-box"><%= f.button :submit, label: 'Send' %></div>
         </div>
       <% end %>
     </div>

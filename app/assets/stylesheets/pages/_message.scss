@@ -56,7 +56,7 @@
 
 .avatar-large {
   width: 50px;
-  border-radius: 50%;
+  border-radius: 70%;
 }
 
 .message.frame {
@@ -65,9 +65,13 @@
     height: 50px;
     width: 50%;
     overflow: hidden;
-    padding: 25px;
-    border: 1px solid #707070 ;
+    padding: 30px;
+    border: 1px ;
+}
 
-    }
+.btn-default {
+    margin-top: 10px;
+    border-radius: 15px;
+}
 
 
