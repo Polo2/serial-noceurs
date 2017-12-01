@@ -61,7 +61,7 @@ puts "Créations de 6 mariages maintenant"
 
 
 wedding1_polo = Wedding.create({
-  title: "collaboratif",
+  title: "French : collaboratif",
   description: "Mariage collaboratif en Bourgogne",
   capacity: 51,
   user_id: new_user_polo.id,
@@ -74,8 +74,8 @@ wedding1_polo = Wedding.create({
 
 
 wedding2_polo = Wedding.create({
-  title: "Traditionnel",
-  description: "Célébrons notre amour à la mairie",
+  title: "Old school",
+  description: "CLet's play Gotham'style",
   capacity: 33,
   user_id: new_user_polo.id,
   date: Date.new(2017,1,27),
@@ -87,8 +87,8 @@ wedding2_polo = Wedding.create({
 
 
 wedding3_horti = Wedding.create({
-  title: "Chic",
-  description: "Cérémonie chic, thème Blanc",
+  title: "Lightful",
+  description: "CéLet's get married like Louis XIV",
   capacity: 78,
   user_id: new_user_horti.id,
   date: Date.new(2018,7,7),
@@ -100,12 +100,12 @@ wedding3_horti = Wedding.create({
 
 
 wedding4_horti = Wedding.create({
-  title: "Piscine Champagne",
-  description: "Tant qu'il y aura des bulles ...",
+  title: "Piss'in Champaign",
+  description: "Because bubbles are part of life ...",
   capacity: 89,
   user_id: new_user_horti.id,
   date: Date.new(2020,6,29),
-  location: "Saint-Didier au Mont d'or",
+  location: "Megeve",
   price: 13,
   photo_url: 'http://cdn1.greatfon.com/uploads/picture/452/129/129452/sunset-wateksuite-exterior.jpg'
   })
@@ -126,14 +126,14 @@ wedding5_aurel = Wedding.create({
 
 
 wedding6_aurel = Wedding.create({
-  title: "Libertin",
-  description: "Interdit -18 ans",
+  title: "Libertine",
+  description: "50 shades of gray",
   capacity: 69,
   user_id: new_user_aurel.id,
   date: Date.new(2018,2,14),
-  location: "Paris",
+  location: "New-York",
   price: 14,
-  photo_url: 'https://junebugweddings.com/images/contests/best-of-wedding/2016/best-of-wedding-2016-8b5e81b3b7.jpg'
+  photo_url: 'https://astroglide.media.zestyio.com/keep-relationship-hot.49951c8c20b5646bb5a2b150b922df1f.H1bkMLN50e.jpg'
   })
 
 puts "Création de 6 messages"
