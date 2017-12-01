@@ -10,6 +10,7 @@ class WeddingsController < ApplicationController
   def show
     @registry = Registry.new
     @review = Review.new
+    @user_id = current_user
   end
 
   def new

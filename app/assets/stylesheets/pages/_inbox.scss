@@ -1,0 +1,26 @@
+.messages {
+  background: #fefefe;
+  padding: 30px;
+
+  .message.frame {
+    width: 80%;
+    display: flex;
+  }
+
+  .message-wrapper {
+    display: flex;
+    padding: 20px;
+  }
+
+  .message-wrapper.current-user {
+    justify-content: flex-start;
+  }
+
+  .message-wrapper.opposite-user {
+    justify-content: flex-end;
+  }
+
+  .avatar-smaller{
+    padding: 5px;
+ }
+}

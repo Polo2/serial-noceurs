@@ -6,7 +6,7 @@
 <div class="message">
   <%= cl_image_tag discussion.opposite_user.avatar, gravity: :face, crop: :scale, class: "avatar-large" %>
   <div class="message-name">
-    <h3><%= discussion.opposite_user.first_name %></h3>
+    <h3><%= discussion.opposite_user.first_name %> <% discussion.last_message %></h3>
     <p><%= l(discussion.last_message.created_at, format: :short) %></p>
   </div>
   <div class="message-body">
@@ -14,8 +14,7 @@
     <p><%= discussion.last_message.content %></p>
   </div>
   <div class="message-status">
-    <p class="status pending">Pending</p>
-    <%= link_to "Full Conversation", user_inboxes_path(@user_id) %>
+    <%= link_to "Full Conversation", user_inboxes_path(discussion.opposite_user.id) %>
   </div>
 </div>
   <% end %>

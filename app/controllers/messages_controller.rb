@@ -8,8 +8,9 @@ before_action :set_message, only: [:edit, :update, :destroy]
 
   def create
     @message = Message.new(message_params)
+
     if @message.save
-      redirect_to messages_path
+        redirect_to messages_path
     else
       redirect_to new_message_path
     end
@@ -17,7 +18,7 @@ before_action :set_message, only: [:edit, :update, :destroy]
 
   def index
     @user_discussions = Discussion.for(current_user)
-    @user_id = current_user.id
+
 
     # @messages = Message.all
     # @sender = current_user

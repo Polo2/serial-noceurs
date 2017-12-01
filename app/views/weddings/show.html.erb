@@ -40,7 +40,8 @@
               <h4><%= @wedding.price %> €</h4>
             </div>
 
-            <%= simple_form_for (@registry) do |f| %>
+
+            <%= simple_form_for([@wedding, @registry]) do |f| %>
               <%= f.error_notification %>
               <div class="form-inputs">
                 <%= f.input :guest, collection: 1..@wedding.capacity %>
@@ -68,7 +69,7 @@
 </div>
   <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@wedding.location}&key=AIzaSyAoD7J5XaY9FZcw6dPxIQY3jv7FTkSfLNg", alt: '' %>
 </div>
-  </div>
+</div>
 
 
 
