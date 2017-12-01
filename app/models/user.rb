@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :weddings
+  has_many :registries
+  # has_many :overstay_weddings, :through => :registries, :source => <name>
+  has_many :overstay_weddings, source: :wedding, through: :registries
   has_many :received_messages, foreign_key: 'receiver_id', class_name: 'Message'
   has_many :sent_messages, foreign_key: 'sender_id', class_name: 'Message'
 

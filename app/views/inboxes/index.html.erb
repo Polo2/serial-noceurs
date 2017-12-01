@@ -3,24 +3,35 @@
 <h2> My Message </h2>
 
 <div class="container">
-  <div class="message frame">
-     <% @messages.each do |message| %>
-    <div class="message-name">
-      <p><%= l(message.created_at, format: :short) %></p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <div class="messages">
+        <% @messages.each do |message| %>
+          <div class="message-wrapper <%= current_user == message.sender ? 'current-user' : 'opposite-user' %>">
+            <div class="message frame">
+              <%= cl_image_tag @user.avatar, gravity: :face, crop: :scale, class: "avatar-large avatar-smaller" %>
+              <div class="message-name">
+                <p><%= l(message.created_at, format: :short) %></p>
+              </div>
+              <div class="message-body">
+                <p><strong><%= message.title.capitalize %></strong></p>
+                <p><%=message.content%></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="message-body">
-      <p><%= message.title %></p>
-      <p><strong><%=message.content%></strong></p>
-    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= simple_form_for(@message) do |f| %>
+        <div class="form-inputs pull-left">
+          <%= f.input :title, label: 'Message Subject', error: 'Subject mandatory, please specify one' %>
+          <%= f.input :content, placeholder: 'Write your message here' %>
+          <%= f.input :receiver_id, as: :hidden %>
+          <%= f.input :sender_id, as: :hidden %>
+          <%= f.button :submit, label: 'Send' %>
+        </div>
       <% end %>
-  </div>
-
-  <%= simple_form_for(@message) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :title, label: 'Message Subject', error: 'Subject mandatory, please specify one' %>
-      <%= f.input :content, placeholder: 'Write your message here' %>
-      <%= f.button :submit, label: 'Send' %>
     </div>
-  <% end %>
-
+  </div>
 </div>
