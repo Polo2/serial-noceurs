@@ -2,20 +2,20 @@
 
 <h2> My Inbox </h2>
 
-<% @user_discussions.each do |user| %>
+<% @user_discussions.each do |discussion| %>
 <div class="message">
-  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <%= cl_image_tag discussion.opposite_user.avatar, gravity: :face, crop: :scale, class: "avatar-large" %>
   <div class="message-name">
-    <h3><%= user.first_name %></h3>
-    <p><%= l(user.last_message(current_user).created_at, format: :short) %></p>
+    <h3><%= discussion.opposite_user.first_name %></h3>
+    <p><%= l(discussion.last_message.created_at, format: :short) %></p>
   </div>
   <div class="message-body">
-    <p><strong><%= user.last_message(current_user).title %></strong></p>
-    <p><%= user.last_message(current_user).content %></p>
+    <p><strong><%= discussion.last_message.title %></strong></p>
+    <p><%= discussion.last_message.content %></p>
   </div>
   <div class="message-status">
     <p class="status pending">Pending</p>
-    <p class="price">€345</p>
+    <%= link_to "Full Conversation", user_inboxes_path(@user_id) %>
   </div>
 </div>
   <% end %>

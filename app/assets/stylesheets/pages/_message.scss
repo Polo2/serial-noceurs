@@ -58,3 +58,13 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.message.frame {
+    border-radius: 15px;
+    background: #e0e0de;
+    height: 30px;
+    width: 50%;
+    overflow: hidden;
+    padding: 5;
+    border: 1px solid #707070 ;
+    }
