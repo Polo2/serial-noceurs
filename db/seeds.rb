@@ -119,7 +119,7 @@ wedding5_aurel = Wedding.create({
   user_id: new_user_aurel.id,
   date: Date.new(2018,12,31),
   price: 14,
-  location: "Valence",
+  location: "Valence, France",
   photo_url: 'https://www.theknot.com/assets/topic_pages/wedding-vows-ceremony-de390170d87b481e073afef3e03a2c7b4a5d7e0b1de1036a40816f80fa85a6cd.jpg'
   })
 
@@ -131,7 +131,7 @@ wedding6_aurel = Wedding.create({
   capacity: 69,
   user_id: new_user_aurel.id,
   date: Date.new(2018,2,14),
-  location: "New-York",
+  location: "Los Angeles",
   price: 14,
   photo_url: 'https://astroglide.media.zestyio.com/keep-relationship-hot.49951c8c20b5646bb5a2b150b922df1f.H1bkMLN50e.jpg'
   })
