@@ -1,9 +1,10 @@
 <h2>My profile</h2>
+<%= cl_image_tag current_user.avatar, gravity: :face, crop: :scale, class: "avatar-large" %>
 
 <%= current_user.first_name %>
 <%= current_user.last_name %>
 <%= current_user.birthday %>
-<%= cl_image_tag current_user.avatar, gravity: :face, crop: :scale, class: "avatar" %>
+
 
 <%= link_to "Edit my profile", edit_user_registration_path(current_user) %>
 
