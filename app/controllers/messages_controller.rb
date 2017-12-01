@@ -8,8 +8,9 @@ before_action :set_message, only: [:edit, :update, :destroy]
 
   def create
     @message = Message.new(message_params)
+
     if @message.save
-      redirect_to messages_path
+        redirect_to messages_path
     else
       redirect_to new_message_path
     end
