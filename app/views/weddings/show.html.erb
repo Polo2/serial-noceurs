@@ -5,18 +5,9 @@
 <div class="show">
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
 
-      <h1><%= @wedding.title %></h1>
-      <h4>The wedding</h4>
-      <i class="fa fa-calendar" aria-hidden="true"></i>
-      <%= @wedding.date %>
-      <i class="fa fa-globe" aria-hidden="true"></i>
-      <%= @wedding.location %>
-      <i class="fa fa-glass" aria-hidden="true"></i>
-      <%= @wedding.capacity %>
-      <i class="fa fa-eur" aria-hidden="true"></i>
-      <%= @wedding.price %>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-1">
+
 
       <hr>
       <p>
@@ -30,45 +21,72 @@
       <% else %>
         <%= link_to 'Send Message to Wedder', user_inboxes_path(@user_id) %> |
         <%= link_to 'Back', weddings_path %>
+      <div class="wedding_description">
+        <h1><%= @wedding.title %></h1>
+        <h4>The wedding</h4>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <%= @wedding.date %>
+        <i class="fa fa-globe" aria-hidden="true"></i>
+        <%= @wedding.location %>
+        <i class="fa fa-glass" aria-hidden="true"></i>
+        <%= @wedding.capacity %>
+        <i class="fa fa-eur" aria-hidden="true"></i>
+        <%= @wedding.price %>
+        <hr>
+        <p><%= @wedding.description %></p>
+
       </div>
 
-      <div class="col-xs-12 col-sm-4">
-        <div class="wedding-registry-form">
-          <% unless @wedding.passed?(@wedding) %>
-            <div class="registry-info">
-              <h4>Book this wedding</h4>
-              <h4><%= @wedding.price %> €</h4>
+      <hr>
+
+        <% if current_user[:id] == @wedding[:user_id] %>
+          <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+          <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
+          <%= link_to 'Back', weddings_path %>
+          <div class="wedding_map"> <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@wedding.location}&key=AIzaSyAoD7J5XaY9FZcw6dPxIQY3jv7FTkSfLNg", alt: '' %></div>
+        <% else %>
+
+          <div class="wedding-registry-form">
+
+            <% if @wedding.passed?(@wedding) %>
+            <%= link_to 'Back', weddings_path %>
+              <div id="reviews">
+              <% if @wedding.reviews.blank? %>
+                Be the first to leave a review for <%= @wedding.title %>
+              <% else %>
+                <% @wedding.reviews.each do |review| %>
+                  <%= render 'reviews/show', review: review %>
+                <% end %>
+              <% end %>
+              <%= render 'reviews/form', wedding: @wedding, review: @review %>
+              </div>
+              <% else %>
+          <%= link_to 'Send Message to Wedder', new_wedding_message_path(@wedding) %> |
+          <%= link_to 'Back', weddings_path %>
+                <div class="registry-info">
+                  <h4>Book this wedding</h4>
+                  <h4><%= @wedding.price %> €</h4>
+                </div>
+                <div class="registry_form_wedding">
+                  <%= simple_form_for(@registry) do |f| %>
+                    <%= f.error_notification %>
+                    <div class="form-inputs">
+                      <%= f.input :guest, collection: 1..@wedding.capacity %>
+                    </div>
+                    <div class="form-actions">
+                      <%= f.button :submit, class: "btn btn-primary" %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
 
-            <%= simple_form_for(@registry) do |f| %>
-              <%= f.error_notification %>
-              <div class="form-inputs">
-                <%= f.input :guest, collection: 1..@wedding.capacity %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, class: "btn btn-primary" %>
-              </div>
-            <% end %>
-          <% end %>
         <% end %>
+
       </div>
     </div>
-
-    <div id="reviews">
-
-      <% if @wedding.reviews.blank? %>
-        Be the first to leave a review for <%= @wedding.title %>
-      <% else %>
-        <% @wedding.reviews.each do |review| %>
-          <%= render 'reviews/show', review: review %>
-        <% end %>
-      <% end %>
-    </div>
-  <%= render 'reviews/form', wedding: @wedding, review: @review %>
-</div>
-  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@wedding.location}" %>
-</div>
   </div>
+
 
 
 
