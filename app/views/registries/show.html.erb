@@ -1,0 +1,23 @@
+<h1>Your registry</h1>
+
+
+<p>Please read the details of your registry before confirm</p>
+
+<p>You asked to come to the wedding : "<%= @wedding.title %>"</p>
+
+
+<p> Your registry is for : <%= @registry.guest %> persons </p>
+
+<p> Amount per person : <%= @wedding.price %> € </p>
+
+<p> You'll have to pay : <%= @registry.guest %> x <%= @wedding.price %> = <%= @registry.guest * @wedding.price%> € </p>
+
+<p> Be ready for this awesome wedding !!! </p>
+
+<%= link_to "Pay #{@registry.guest * @wedding.price} €" , wedding_path(@wedding) %>
+
+<% delta = @wedding.date - Date.current %>
+
+<h3> J - <%= delta.to_i %> </h3>
+
+<%= link_to "Cancel Registration", weddings_path %>
