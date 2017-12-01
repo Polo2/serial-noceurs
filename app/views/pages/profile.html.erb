@@ -3,7 +3,40 @@
 <%= current_user.first_name %>
 <%= current_user.last_name %>
 <%= current_user.birthday %>
-
-<%= current_user.weddings %>
+<%= cl_image_tag current_user.avatar, gravity: :face, crop: :scale, class: "avatar" %>
 
 <%= link_to "Edit my profile", edit_user_registration_path(current_user) %>
+
+<h4>My weddings</h4>
+<div class="row">
+  <% current_user.weddings.each do |wedding|%>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)">
+        <div class="card-category" >
+          <h6><%= wedding.title %></h6>
+        </div>
+        <div class="card-description">
+          <h6><%= wedding.location %> / <%= wedding.capacity %></h6>
+        </div>
+        <a class="card-link" href="<%= wedding_path(wedding) %>" ></a>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<h4>My attented weddings</h4>
+<div class="row">
+  <% current_user.overstay_weddings.each do |wedding|%>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(wedding.photo.path) if wedding.photo %>)">
+        <div class="card-category" >
+          <h6><%= wedding.title %></h6>
+        </div>
+        <div class="card-description">
+          <h6><%= wedding.location %> / <%= wedding.capacity %></h6>
+        </div>
+        <a class="card-link" href="<%= wedding_path(wedding) %>" ></a>
+    </div>
+  </div>
+<% end %>
+</div>
