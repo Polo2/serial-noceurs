@@ -8,6 +8,19 @@
 
     <div class="col-xs-12 col-sm-8 col-sm-offset-1">
 
+
+      <hr>
+      <p>
+        <%= @wedding.description %>
+      </p>
+      <hr>
+      <% if current_user[:id] == @wedding[:user_id] %>
+        <%= link_to 'Edit', edit_wedding_path(@wedding) %> |
+        <%= link_to 'Destroy', @wedding, method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <%= link_to 'Back', weddings_path %>
+      <% else %>
+        <%= link_to 'Send Message to Wedder', user_inboxes_path(@user_id) %> |
+        <%= link_to 'Back', weddings_path %>
       <div class="wedding_description">
         <h1><%= @wedding.title %></h1>
         <h4>The wedding</h4>
@@ -21,6 +34,7 @@
         <%= @wedding.price %>
         <hr>
         <p><%= @wedding.description %></p>
+
       </div>
 
       <hr>
