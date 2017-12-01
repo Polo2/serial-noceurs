@@ -6,9 +6,10 @@ class WeddingsController < ApplicationController
     @experiences = Wedding.passed
   end
 
+  # GET /weedings/:id
   def show
     @registry = Registry.new
-    @review = Review.find(params[:id])
+    @review = Review.new
   end
 
   def new

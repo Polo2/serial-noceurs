@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
   def create
-    @wedding = Wedding.find(params[:wedding])
     # @user = User.find(params[:user_id])
-    @wedding_review = Review.new(review_params)
     # @user_review = Review.new(review_params)
-    @wedding_review.wedding = @wedding
-    # @review.user = @user
-    if @wedding_review.save
+    # @user_review.user = @user
+    @wedding = Wedding.find(params[:wedding_id])
+    @review = Review.new(review_params)
+    @review.wedding = @wedding
+    if @review.save
       respond_to do |format|
         format.html { redirect_to wedding_path(@wedding) }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
