@@ -40,6 +40,7 @@ class WeddingsController < ApplicationController
     redirect_to weddings_path
   end
 
+
   private
 
   def set_wedding
