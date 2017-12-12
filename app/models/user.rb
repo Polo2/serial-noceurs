@@ -7,14 +7,12 @@ class User < ApplicationRecord
 
   has_many :weddings
   has_many :registries
-  # has_many :overstay_weddings, :through => :registries, :source => <name>
   has_many :overstay_weddings, source: :wedding, through: :registries
   has_many :received_messages, foreign_key: 'receiver_id', class_name: 'Message'
   has_many :sent_messages, foreign_key: 'sender_id', class_name: 'Message'
 
 
   # has_many :reviews
-  # has_many :registries
   has_attachment :avatar_url
 
   def self.find_for_facebook_oauth(auth)
