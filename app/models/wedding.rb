@@ -1,7 +1,7 @@
 class Wedding < ApplicationRecord
   belongs_to :user
   has_many :messages
-  has_many :registries
+  has_many :registries, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_attachment :photo
 

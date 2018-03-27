@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :weddings
-  has_many :registries
+  has_many :weddings, dependent: :destroy
+  has_many :registries, dependent: :destroy
   # has_many :overstay_weddings, :through => :registries, :source => <name>
   has_many :overstay_weddings, source: :wedding, through: :registries
   has_many :received_messages, foreign_key: 'receiver_id', class_name: 'Message'
